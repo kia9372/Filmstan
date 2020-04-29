@@ -1,0 +1,16 @@
+E:\MyProject\Filmstan\DAL.Mongo\bin\Debug\netcoreapp3.1\DAL.Mongo.deps.json
+E:\MyProject\Filmstan\DAL.Mongo\bin\Debug\netcoreapp3.1\DAL.Mongo.dll
+E:\MyProject\Filmstan\DAL.Mongo\bin\Debug\netcoreapp3.1\DAL.Mongo.pdb
+E:\MyProject\Filmstan\DAL.Mongo\obj\Debug\netcoreapp3.1\DAL.Mongo.csproj.CoreCompileInputs.cache
+E:\MyProject\Filmstan\DAL.Mongo\obj\Debug\netcoreapp3.1\DAL.Mongo.AssemblyInfoInputs.cache
+E:\MyProject\Filmstan\DAL.Mongo\obj\Debug\netcoreapp3.1\DAL.Mongo.AssemblyInfo.cs
+E:\MyProject\Filmstan\DAL.Mongo\obj\Debug\netcoreapp3.1\DAL.Mongo.dll
+E:\MyProject\Filmstan\DAL.Mongo\obj\Debug\netcoreapp3.1\DAL.Mongo.pdb
+E:\MyProject\Filmstan\BackEnd\DAL.Mongo\bin\Debug\netcoreapp3.1\DAL.Mongo.deps.json
+E:\MyProject\Filmstan\BackEnd\DAL.Mongo\bin\Debug\netcoreapp3.1\DAL.Mongo.dll
+E:\MyProject\Filmstan\BackEnd\DAL.Mongo\bin\Debug\netcoreapp3.1\DAL.Mongo.pdb
+E:\MyProject\Filmstan\BackEnd\DAL.Mongo\obj\Debug\netcoreapp3.1\DAL.Mongo.csproj.CoreCompileInputs.cache
+E:\MyProject\Filmstan\BackEnd\DAL.Mongo\obj\Debug\netcoreapp3.1\DAL.Mongo.AssemblyInfoInputs.cache
+E:\MyProject\Filmstan\BackEnd\DAL.Mongo\obj\Debug\netcoreapp3.1\DAL.Mongo.AssemblyInfo.cs
+E:\MyProject\Filmstan\BackEnd\DAL.Mongo\obj\Debug\netcoreapp3.1\DAL.Mongo.dll
+E:\MyProject\Filmstan\BackEnd\DAL.Mongo\obj\Debug\netcoreapp3.1\DAL.Mongo.pdb

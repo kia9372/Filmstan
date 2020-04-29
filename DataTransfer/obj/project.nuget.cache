@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "rX99+bgn36zHaNVTCWY5xQrwv/BpZf/f3ECo3KP8RmsKfJt15q3geee3jpBZUtvGpSWTf/H72NBd1HU9mIokRw==",
+  "success": true,
+  "projectFilePath": "E:\\MyProject\\Filmstan\\BackEnd\\DataTransfer\\DataTransfer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mr-Coder\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.3\\microsoft.aspnetcore.http.features.3.1.3.nupkg.sha512",
+    "C:\\Users\\Mr-Coder\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.3\\microsoft.extensions.primitives.3.1.3.nupkg.sha512",
+    "C:\\Users\\Mr-Coder\\.nuget\\packages\\system.io.pipelines\\4.7.1\\system.io.pipelines.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}

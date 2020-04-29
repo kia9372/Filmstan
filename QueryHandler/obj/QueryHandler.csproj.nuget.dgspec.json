@@ -1,0 +1,680 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\MyProject\\Filmstan\\BackEnd\\QueryHandler\\QueryHandler.csproj": {}
+  },
+  "projects": {
+    "E:\\MyProject\\Filmstan\\BackEnd\\Common\\Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\MyProject\\Filmstan\\BackEnd\\Common\\Common.csproj",
+        "projectName": "Common",
+        "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\Mr-Coder\\.nuget\\packages\\",
+        "outputPath": "E:\\MyProject\\Filmstan\\BackEnd\\Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mr-Coder\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\MyProject\\Filmstan\\BackEnd\\DataTransfer\\DataTransfer.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\DataTransfer\\DataTransfer.csproj"
+              },
+              "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\Domain.Core.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\Domain.Core.csproj"
+              },
+              "E:\\MyProject\\Filmstan\\BackEnd\\Resources\\Localization.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Resources\\Localization.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[2.6.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.Extensions.Caching.Redis": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "SmsIrRestfulNetCore": {
+              "target": "Package",
+              "version": "[1.1.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\MyProject\\Filmstan\\BackEnd\\DAL.Dapper\\DAL.Dapper.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\MyProject\\Filmstan\\BackEnd\\DAL.Dapper\\DAL.Dapper.csproj",
+        "projectName": "DAL.Dapper",
+        "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\DAL.Dapper\\DAL.Dapper.csproj",
+        "packagesPath": "C:\\Users\\Mr-Coder\\.nuget\\packages\\",
+        "outputPath": "E:\\MyProject\\Filmstan\\BackEnd\\DAL.Dapper\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mr-Coder\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\MyProject\\Filmstan\\BackEnd\\DAL.EF\\DAL.EF.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\MyProject\\Filmstan\\BackEnd\\DAL.EF\\DAL.EF.csproj",
+        "projectName": "DAL.EF",
+        "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\DAL.EF\\DAL.EF.csproj",
+        "packagesPath": "C:\\Users\\Mr-Coder\\.nuget\\packages\\",
+        "outputPath": "E:\\MyProject\\Filmstan\\BackEnd\\DAL.EF\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mr-Coder\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\MyProject\\Filmstan\\BackEnd\\Common\\Common.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Common\\Common.csproj"
+              },
+              "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj"
+              },
+              "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\Domain.Core.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\Domain.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\MyProject\\Filmstan\\BackEnd\\DataTransfer\\DataTransfer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\MyProject\\Filmstan\\BackEnd\\DataTransfer\\DataTransfer.csproj",
+        "projectName": "DataTransfer",
+        "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\DataTransfer\\DataTransfer.csproj",
+        "packagesPath": "C:\\Users\\Mr-Coder\\.nuget\\packages\\",
+        "outputPath": "E:\\MyProject\\Filmstan\\BackEnd\\DataTransfer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mr-Coder\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\MyProject\\Filmstan\\BackEnd\\Resources\\Localization.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Resources\\Localization.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj",
+        "projectName": "Domain.Aggregate",
+        "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj",
+        "packagesPath": "C:\\Users\\Mr-Coder\\.nuget\\packages\\",
+        "outputPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mr-Coder\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\Domain.Core.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\Domain.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\Domain.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\Domain.Core.csproj",
+        "projectName": "Domain.Core",
+        "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\Domain.Core.csproj",
+        "packagesPath": "C:\\Users\\Mr-Coder\\.nuget\\packages\\",
+        "outputPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mr-Coder\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\MyProject\\Filmstan\\BackEnd\\QueryHandler\\QueryHandler.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\MyProject\\Filmstan\\BackEnd\\QueryHandler\\QueryHandler.csproj",
+        "projectName": "QueryHandler",
+        "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\QueryHandler\\QueryHandler.csproj",
+        "packagesPath": "C:\\Users\\Mr-Coder\\.nuget\\packages\\",
+        "outputPath": "E:\\MyProject\\Filmstan\\BackEnd\\QueryHandler\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mr-Coder\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\MyProject\\Filmstan\\BackEnd\\Common\\Common.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Common\\Common.csproj"
+              },
+              "E:\\MyProject\\Filmstan\\BackEnd\\DAL.Dapper\\DAL.Dapper.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\DAL.Dapper\\DAL.Dapper.csproj"
+              },
+              "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj"
+              },
+              "E:\\MyProject\\Filmstan\\BackEnd\\Query\\Query.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Query\\Query.csproj"
+              },
+              "E:\\MyProject\\Filmstan\\BackEnd\\SiteService\\SiteService.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\SiteService\\SiteService.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\MyProject\\Filmstan\\BackEnd\\Query\\Query.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\MyProject\\Filmstan\\BackEnd\\Query\\Query.csproj",
+        "projectName": "Query",
+        "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Query\\Query.csproj",
+        "packagesPath": "C:\\Users\\Mr-Coder\\.nuget\\packages\\",
+        "outputPath": "E:\\MyProject\\Filmstan\\BackEnd\\Query\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mr-Coder\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\MyProject\\Filmstan\\BackEnd\\Common\\Common.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Common\\Common.csproj"
+              },
+              "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\MyProject\\Filmstan\\BackEnd\\Resources\\Localization.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\MyProject\\Filmstan\\BackEnd\\Resources\\Localization.csproj",
+        "projectName": "Localization",
+        "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Resources\\Localization.csproj",
+        "packagesPath": "C:\\Users\\Mr-Coder\\.nuget\\packages\\",
+        "outputPath": "E:\\MyProject\\Filmstan\\BackEnd\\Resources\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mr-Coder\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\MyProject\\Filmstan\\BackEnd\\SiteService\\SiteService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\MyProject\\Filmstan\\BackEnd\\SiteService\\SiteService.csproj",
+        "projectName": "SiteService",
+        "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\SiteService\\SiteService.csproj",
+        "packagesPath": "C:\\Users\\Mr-Coder\\.nuget\\packages\\",
+        "outputPath": "E:\\MyProject\\Filmstan\\BackEnd\\SiteService\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mr-Coder\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\MyProject\\Filmstan\\BackEnd\\Common\\Common.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Common\\Common.csproj"
+              },
+              "E:\\MyProject\\Filmstan\\BackEnd\\DAL.EF\\DAL.EF.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\DAL.EF\\DAL.EF.csproj"
+              },
+              "E:\\MyProject\\Filmstan\\BackEnd\\DataTransfer\\DataTransfer.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\DataTransfer\\DataTransfer.csproj"
+              },
+              "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

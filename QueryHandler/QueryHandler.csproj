@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\DAL.Dapper\DAL.Dapper.csproj" />
+    <ProjectReference Include="..\Domain.Aggregate\Domain.Aggregate.csproj" />
+    <ProjectReference Include="..\Query\Query.csproj" />
+    <ProjectReference Include="..\SiteService\SiteService.csproj" />
+  </ItemGroup>
+
+</Project>

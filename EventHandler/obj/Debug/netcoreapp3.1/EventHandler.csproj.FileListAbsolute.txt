@@ -1,0 +1,16 @@
+E:\MyProject\Filmstan\EventHandler\bin\Debug\netcoreapp3.1\EventHandler.deps.json
+E:\MyProject\Filmstan\EventHandler\bin\Debug\netcoreapp3.1\EventHandler.dll
+E:\MyProject\Filmstan\EventHandler\bin\Debug\netcoreapp3.1\EventHandler.pdb
+E:\MyProject\Filmstan\EventHandler\obj\Debug\netcoreapp3.1\EventHandler.csproj.CoreCompileInputs.cache
+E:\MyProject\Filmstan\EventHandler\obj\Debug\netcoreapp3.1\EventHandler.AssemblyInfoInputs.cache
+E:\MyProject\Filmstan\EventHandler\obj\Debug\netcoreapp3.1\EventHandler.AssemblyInfo.cs
+E:\MyProject\Filmstan\EventHandler\obj\Debug\netcoreapp3.1\EventHandler.dll
+E:\MyProject\Filmstan\EventHandler\obj\Debug\netcoreapp3.1\EventHandler.pdb
+E:\MyProject\Filmstan\BackEnd\EventHandler\bin\Debug\netcoreapp3.1\EventHandler.deps.json
+E:\MyProject\Filmstan\BackEnd\EventHandler\bin\Debug\netcoreapp3.1\EventHandler.dll
+E:\MyProject\Filmstan\BackEnd\EventHandler\bin\Debug\netcoreapp3.1\EventHandler.pdb
+E:\MyProject\Filmstan\BackEnd\EventHandler\obj\Debug\netcoreapp3.1\EventHandler.csproj.CoreCompileInputs.cache
+E:\MyProject\Filmstan\BackEnd\EventHandler\obj\Debug\netcoreapp3.1\EventHandler.AssemblyInfoInputs.cache
+E:\MyProject\Filmstan\BackEnd\EventHandler\obj\Debug\netcoreapp3.1\EventHandler.AssemblyInfo.cs
+E:\MyProject\Filmstan\BackEnd\EventHandler\obj\Debug\netcoreapp3.1\EventHandler.dll
+E:\MyProject\Filmstan\BackEnd\EventHandler\obj\Debug\netcoreapp3.1\EventHandler.pdb
