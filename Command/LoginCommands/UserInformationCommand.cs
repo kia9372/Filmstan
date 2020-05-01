@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Command.LoginCommand
+namespace Command.LoginCommands
 {
     public class UserInformationCommand : IRequest<OperationResult<UserInformationDto>>
     {

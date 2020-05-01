@@ -2,23 +2,58 @@
 using System.Threading.Tasks;
 using Command.SettingCommand;
 using Command.SmsSettingCommand;
+using Common;
 using DataTransfer.EmailSettingDtos;
 using DataTransfer.Setting;
 using DataTransfer.SMSSettingDtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Query.SettingQueries;
 using Travel.Framework.Base;
 
-namespace Filmstan.Controllers.V1.SettingControllers
+namespace Command.Controllers.V1.SettingControllers
 {
     [DisplayName("تنظیمات سایت")]
-    public class SettingController : BaseController , IPermissionMarker
+    public class SettingController : BaseController, IPermissionMarker
     {
         private readonly IMediator mediator;
 
         public SettingController(IMediator mediator) : base(mediator)
         {
             this.mediator = mediator;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetSmsSetting()
+        {
+            var result = await mediator.Send(new SmsSettingQuery());
+            if (result.Success)
+            {
+                return Ok(result.Result);
+            }
+            return BadRequest(result.ErrorMessage);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetEmailetting()
+        {
+            var result = await mediator.Send(new EmailSettingQuery());
+            if (result.Success)
+            {
+                return Ok(result.Result);
+            }
+            return BadRequest(result.ErrorMessage);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetRegisterUserSetting()
+        {
+            var result = await mediator.Send(new RegisterUserSettingQuery());
+            if (result.Success)
+            {
+                return Ok(result.Result);
+            }
+            return BadRequest(result.ErrorMessage);
         }
 
         [HttpPut]
@@ -50,7 +85,7 @@ namespace Filmstan.Controllers.V1.SettingControllers
 
         [HttpPut]
         [DisplayName("تنظیمات پیامک")]
-        public async Task<IActionResult> SetSMSSetting(AddSMSSetting smsSetting)
+        public async Task<IActionResult> SetSMSSetting([FromBody]AddSMSSetting smsSetting)
         {
             var result = await mediator.Send(new SetSmsSettingCommand
             {
@@ -73,7 +108,7 @@ namespace Filmstan.Controllers.V1.SettingControllers
             {
                 RegisterRoleByAdmin = registerUserSetting.RegisterRoleByAdmin,
                 RegisterRoleByUser = registerUserSetting.RegisterRoleByUser,
-                SendCodeVerification = registerUserSetting.SendCodeVerification
+                SendCodeVerifications = registerUserSetting.SendCodeVerifications
             });
             if (result.Success)
             {

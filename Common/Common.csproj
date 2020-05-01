@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataTransfer\DataTransfer.csproj" />
+    <ProjectReference Include="..\Domain.Aggregate\Domain.Aggregate.csproj" />
     <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
     <ProjectReference Include="..\Resources\Localization.csproj" />
   </ItemGroup>

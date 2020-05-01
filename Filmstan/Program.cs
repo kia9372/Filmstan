@@ -19,7 +19,7 @@ using Serilog.Filters;
 using Serilog.Formatting.Compact;
 using Serilog.Sinks.MSSqlServer;
 
-namespace Filmstan
+namespace Command
 {
     public class Program
     {

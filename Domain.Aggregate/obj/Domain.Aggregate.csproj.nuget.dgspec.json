@@ -49,6 +49,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
+            },
+            "Sieve": {
+              "target": "Package",
+              "version": "[2.3.3, )"
             }
           },
           "imports": [
@@ -103,6 +107,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Sieve": {
+              "target": "Package",
+              "version": "[2.3.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

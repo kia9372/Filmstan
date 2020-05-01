@@ -10,9 +10,9 @@ E:\MyProject\Filmstan\DAL.Dapper\obj\Debug\netcoreapp3.1\DAL.Dapper.csprojAssemb
 E:\MyProject\Filmstan\BackEnd\DAL.Dapper\bin\Debug\netcoreapp3.1\DAL.Dapper.deps.json
 E:\MyProject\Filmstan\BackEnd\DAL.Dapper\bin\Debug\netcoreapp3.1\DAL.Dapper.dll
 E:\MyProject\Filmstan\BackEnd\DAL.Dapper\bin\Debug\netcoreapp3.1\DAL.Dapper.pdb
-E:\MyProject\Filmstan\BackEnd\DAL.Dapper\obj\Debug\netcoreapp3.1\DAL.Dapper.csprojAssemblyReference.cache
 E:\MyProject\Filmstan\BackEnd\DAL.Dapper\obj\Debug\netcoreapp3.1\DAL.Dapper.csproj.CoreCompileInputs.cache
 E:\MyProject\Filmstan\BackEnd\DAL.Dapper\obj\Debug\netcoreapp3.1\DAL.Dapper.AssemblyInfoInputs.cache
 E:\MyProject\Filmstan\BackEnd\DAL.Dapper\obj\Debug\netcoreapp3.1\DAL.Dapper.AssemblyInfo.cs
 E:\MyProject\Filmstan\BackEnd\DAL.Dapper\obj\Debug\netcoreapp3.1\DAL.Dapper.dll
 E:\MyProject\Filmstan\BackEnd\DAL.Dapper\obj\Debug\netcoreapp3.1\DAL.Dapper.pdb
+E:\MyProject\Filmstan\BackEnd\DAL.Dapper\obj\Debug\netcoreapp3.1\DAL.Dapper.csprojAssemblyReference.cache

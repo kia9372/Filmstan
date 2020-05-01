@@ -43,9 +43,6 @@ namespace CommandHandler.UserAvtivationCommandHandlers
                                 findUSer.Result.UserChangeActiveStatus(findUSer.Result.IsActive);
                                 break;
                         }
-                        //var update = unitOfWork.UsersRepository.Update(findUSer.Result, cancellationToken);
-                        //if (update.Success)
-                        //{
                         var reomve = unitOfWork.UsersRepository.ActivationCodeRepository.Remove(verification.Result);
                         if (reomve.Success)
                         {
@@ -53,8 +50,6 @@ namespace CommandHandler.UserAvtivationCommandHandlers
                             return OperationResult<string>.BuildSuccessResult("Verification Success");
                         }
                         return OperationResult<string>.BuildFailure(reomve.ErrorMessage);
-                        //   }
-                        // return OperationResult<string>.BuildFailure(update.ErrorMessage);
                     }
                     return OperationResult<string>.BuildFailure(findUSer.ErrorMessage);
                 }

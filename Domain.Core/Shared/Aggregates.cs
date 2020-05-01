@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sieve.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -9,6 +10,7 @@ namespace Domain.Core.Shared
     public abstract class Aggregates : AggregateNotification
     {
         private bool _isDelete = false;
+        [Sieve(CanFilter = true, CanSort = true)]
         public Guid Id { get; protected set; }
         public bool IsDelete { get => _isDelete; protected set => value = _isDelete; }
 

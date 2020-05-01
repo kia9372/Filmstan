@@ -73,10 +73,10 @@ namespace Framework.Configuration
                              if (userSecurityInfo.Result.IsActive == false)
                                  throw new FilmstanUnAuthourizeException("User not Active");
 
-                             if (userSecurityInfo.Result.SecurityStamp != Guid.Parse(securityStamp[0].Value))
+                             if (userSecurityInfo.Result.UserSecurityStamp != Guid.Parse(securityStamp[0].Value))
                                  throw new FilmstanUnAuthourizeException("User Security Stamp Invalid");
 
-                             if (userSecurityInfo.Result.UserRoles.First().Role.SecurityStamp != Guid.Parse(securityStamp[1].Value))
+                             if (userSecurityInfo.Result.RoleSecurityStamp!= Guid.Parse(securityStamp[1].Value))
                                  throw new FilmstanUnAuthourizeException("Role Security Stamp Invalid");
 
                          },

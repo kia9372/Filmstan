@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "elEoyYnE2joww49ZzNIOjHVrqPZ8dt9EY8zrv8eoMYpOlJQ/AGhljLHzqXCCdzcaohoX31pLbpdaWgVqjrUnSQ==",
+  "dgSpecHash": "VHyCSy9LZovTSUm7Xt6pbLjJeSXqOZGMn3cL1N1ogbAlKf3qqxL720WpXyQmxYE7ys8PINsYXtcETnVTCzR54A==",
   "success": true,
   "projectFilePath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\Domain.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Mr-Coder\\.nuget\\packages\\microsoft.csharp\\4.4.1\\microsoft.csharp.4.4.1.nupkg.sha512",
+    "C:\\Users\\Mr-Coder\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.0.0\\microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512",
+    "C:\\Users\\Mr-Coder\\.nuget\\packages\\microsoft.extensions.options\\2.0.0\\microsoft.extensions.options.2.0.0.nupkg.sha512",
+    "C:\\Users\\Mr-Coder\\.nuget\\packages\\microsoft.extensions.primitives\\2.0.0\\microsoft.extensions.primitives.2.0.0.nupkg.sha512",
+    "C:\\Users\\Mr-Coder\\.nuget\\packages\\sieve\\2.3.3\\sieve.2.3.3.nupkg.sha512",
+    "C:\\Users\\Mr-Coder\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512",
+    "C:\\Users\\Mr-Coder\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.4.0\\system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512"
+  ],
   "logs": []
 }

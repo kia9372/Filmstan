@@ -1,31 +1,20 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using BehaviorHandler.PipeLineBehaviors.RegisterUserBehavior;
-using Command.UserCommands;
-using Common.Operation;
 using DAL.EF.Context;
-using DAL.EF.Repositories;
 using DataTransfer.SettingsDto;
 using Framework.Configuration;
-using Framework.Filters;
 using Framework.Middllwares;
-using Framework.Resources;
-using Framework.ResponseFormatter.ResultApi;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using Sieve.Services;
 using SiteService.Repositories.Implementation;
-using System.Collections.Generic;
-using System.Globalization;
 
-namespace Filmstan
+namespace Command
 {
     public class Startup
     {
@@ -53,6 +42,11 @@ namespace Filmstan
             services.ResultFormatterConfig();
             services.SendNotificationConfig();
             services.AddHttpContextAccessor();
+         //   services.Configure<SieveOptions>(Configuration.GetSection("Sieve"));
+            services.AddScoped<ISieveProcessor,SieveProcessor>();
+            services.AddScoped<ISieveProcessor, ApplicationSieveProcessor>();
+            services.AddScoped<ISieveCustomSortMethods>();
+            services.AddScoped<ISieveCustomFilterMethods>();
             services.SqlConfiguration<FilmstanContext>(Configuration, "SqlServer");
             services.TokenAuthorize(siteSetting);
             services.AddSwaggerGen(c =>

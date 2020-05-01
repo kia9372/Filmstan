@@ -17,7 +17,13 @@ namespace Common.FilmstanExtentions
             var propValue = attribute.GetType().GetProperty(property.ToString()).GetValue(attribute, null);
             return propValue.ToString();
         }
+        public static IEnumerable<T> GetEnumValues<T>(this T input) 
+        {
+            if (!typeof(T).IsEnum)
+                throw new NotSupportedException();
 
+            return Enum.GetValues(input.GetType()).Cast<T>();
+        }
         public static string EnumToString(this Enum value)
         {
             return value.ToString();

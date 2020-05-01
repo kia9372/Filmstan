@@ -6,9 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.3" />
+    <PackageReference Include="Sieve" Version="2.3.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="AccessLevelDtos\" />
     <Folder Include="EmailSettingDtos\" />
     <Folder Include="SMSSettingDtos\" />
   </ItemGroup>

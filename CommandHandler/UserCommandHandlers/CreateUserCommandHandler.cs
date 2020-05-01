@@ -66,7 +66,7 @@ namespace CommandHandler.UserCommandHandlers
                             if (gerateActivationCode.Success)
                             {
                                 /// Send Registration Code
-                                SendNotif sendNotif = sendNotifs.Where(x => x.SendCodeType == registerSetting.Result.SendCodeVerification)
+                                SendNotif sendNotif = sendNotifs.Where(x => x.SendCodeType == registerSetting.Result.SendCodeVerifications)
                                     .FirstOrDefault();
                                 var sendCode = await sendNotif.SendCodeAsync(gerateActivationCode.Result.Item2.ToString(), user.PhoneNumber, cancellationToken);
                                 if (sendCode.Success)

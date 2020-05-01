@@ -1,6 +1,7 @@
 ﻿using Common.LifeTime;
 using DAL.EF.Context;
 using Domain.Core.UnitOfWork;
+using Sieve.Services;
 using SiteService.Repositories.CategoryRepositories.Contract;
 using SiteService.Repositories.CategoryRepositories.Implement;
 using SiteService.Repositories.PostManagazineRepositorys.Contract;
@@ -21,6 +22,7 @@ namespace SiteService.Repositories.Implementation
     public class EFDomainUnitofWork : IDomainUnitOfWork, IScoped
     {
         private readonly FilmstanContext context;
+        private readonly ISieveProcessor sieveProcessor;
 
         public ISettingRepository SettingRepository { get; private set; }
         public IRoleRepository RoleRepository { get; private set; }
@@ -32,13 +34,14 @@ namespace SiteService.Repositories.Implementation
 
         }
 
-        public EFDomainUnitofWork(FilmstanContext context)
+        public EFDomainUnitofWork(FilmstanContext context, ISieveProcessor sieveProcessor)
         {
             this.context = context;
+            this.sieveProcessor = sieveProcessor;
             SettingRepository = new SettingRepository(context);
-            RoleRepository = new RolesRepository(context);
-            UsersRepository = new UsersRepository(context);
-            CategoryRepository = new CategoryRepository(context);
+            RoleRepository = new RolesRepository(context, sieveProcessor);
+            UsersRepository = new UsersRepository(context,sieveProcessor);
+            CategoryRepository = new CategoryRepository(context, sieveProcessor);
             PostMagazineRepository = new PostMagazineRepository(context);
         }
 
@@ -48,7 +51,6 @@ namespace SiteService.Repositories.Implementation
             {
 
                 context.SaveChanges();
-                context.Dispose();
             }
             catch (Exception ex)
             {
@@ -61,7 +63,6 @@ namespace SiteService.Repositories.Implementation
             try
             {
                 await context.SaveChangesAsync();
-                await context.DisposeAsync();
             }
             catch (Exception ex)
             {

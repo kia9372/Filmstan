@@ -13,7 +13,6 @@ namespace BehaviorHandler.PipeLineBehaviors.CategoryBehavior
     public class CheckCategoryIdIsExist<TRequest, TResponse> : IPipelineBehavior<CreateCategoryCommand, OperationResult<string>>
     {
         private readonly IDomainUnitOfWork unitOfWork;
-
         public CheckCategoryIdIsExist(IDomainUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
@@ -23,7 +22,7 @@ namespace BehaviorHandler.PipeLineBehaviors.CategoryBehavior
             if (request.ParentId != null)
             {
                 var findUserName = await unitOfWork.CategoryRepository.GetCategoryByIdAsync((Guid)request.ParentId, cancellationToken);
-                if (findUserName.Result != null)
+                if (findUserName.Result == null)
                 {
                     return OperationResult<string>.BuildFailure("Category NotFound");
                 }

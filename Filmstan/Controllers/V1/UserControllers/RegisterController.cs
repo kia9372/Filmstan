@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Travel.Framework.Base;
 
-namespace Filmstan.Controllers.V1.UserControllers
+namespace Command.Controllers.V1.UserControllers
 {
     public class RegisterController : BaseController 
     {

@@ -1,4 +1,4 @@
-﻿using Command.LoginCommand;
+﻿using Command.LoginCommands;
 using Common.Operation;
 using DataTransfer.UserInformationDtos;
 using MediatR;

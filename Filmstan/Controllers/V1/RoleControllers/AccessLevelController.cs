@@ -4,49 +4,52 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Command.AccessLevelCommands;
+using Common;
 using Common.FilmstanExtentions;
+using Common.HttpContextExtentions;
 using Common.StringExtentions;
 using DataTransfer.ControllerDtos;
 using DataTransfer.RoleDtos;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Query.AccessLevelQueries;
 using Travel.Framework.Base;
 
-namespace Filmstan.Controllers.V1.RoleControllers
+namespace Command.Controllers.V1.RoleControllers
 {
+    [Authorize]
     [DisplayName("تعییت سطح دسترسی")]
     public class AccessLevelController : BaseController, IPermissionMarker
     {
         private readonly IMediator mediator;
+        private readonly IHttpContextAccessor contextAccessor;
 
-        public AccessLevelController(IMediator mediator) : base(mediator)
+        public AccessLevelController(IMediator mediator, IHttpContextAccessor contextAccessor) : base(mediator)
         {
             this.mediator = mediator;
+            this.contextAccessor = contextAccessor;
         }
 
         [HttpGet]
         [DisplayName("لیست  سطوح دسترسی")]
-        public List<ControllerDto> GetPermissionList()
+        [Route("{roleId}")]
+        public async Task<IEnumerable<ControllerDto>> GetPermissionList(Guid roleId)
         {
-            List<ControllerDto> permissionList = new List<ControllerDto>();
-            foreach (var controller in typeof(Startup).Assembly.GetControllerList<IPermissionMarker>())
+            var result = await mediator.Send(new GetPermissionListByRoleIdQuery
             {
-                permissionList.Add(new ControllerDto
-                {
-                    ControllerName = controller.Name.RemoveString("Controller"),
-                    ActionInfos = controller.FindActionsOfController(),
-                    ControllerDisplayName = controller.GetNameByDispayAttribute()
-                });
-            }
-            return permissionList;
+                RoleId = roleId
+            });
+
+            return result.Result;
         }
 
         [HttpPost]
-        [DisplayName("ویرایش سطح دسترسی نقش ها   ")]
-        public IActionResult SetAcceessLevel(AccessLevelDto accessLevels)
+        //  [DisplayName("ویرایش سطح دسترسی نقش ها   ")]
+        public async Task<IActionResult> SetAcceessLevel(AccessLevelDto accessLevels)
         {
-            var result = mediator.Send(new SetAccessLevelCommand
+            var result =await mediator.Send(new SetAccessLevelCommand
             (
                  accessLevels.RoleId,
                  accessLevels.Access

@@ -30,6 +30,9 @@
               "E:\\MyProject\\Filmstan\\BackEnd\\DataTransfer\\DataTransfer.csproj": {
                 "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\DataTransfer\\DataTransfer.csproj"
               },
+              "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj"
+              },
               "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\Domain.Core.csproj": {
                 "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Core\\Domain.Core.csproj"
               },
@@ -133,6 +136,10 @@
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[3.1.3, )"
+            },
+            "Sieve": {
+              "target": "Package",
+              "version": "[2.3.3, )"
             }
           },
           "imports": [
@@ -199,6 +206,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
+            },
+            "Sieve": {
+              "target": "Package",
+              "version": "[2.3.3, )"
             }
           },
           "imports": [
@@ -253,6 +264,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Sieve": {
+              "target": "Package",
+              "version": "[2.3.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Command.LoginCommand;
+using Command.LoginCommands;
+using Command.UserCommands;
 using Common.HttpContextExtentions;
 using DataTransfer.LoginDtos;
+using DataTransfer.SendActivationCodeDto;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -12,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Travel.Framework.Base;
 
-namespace Filmstan.Controllers.V1.UserControllers
+namespace Command.Controllers.V1.UserControllers
 {
 
     public class LoginController : BaseController
@@ -35,6 +37,21 @@ namespace Filmstan.Controllers.V1.UserControllers
                 return Ok(userLogin.Result);
             }
             return BadRequest(userLogin.ErrorMessage);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> SendActivationCode(SendActiveCodeDto phoneNumber)
+        {
+            var result = await mediator.Send(new UserActivationcCodeRequestCommand
+            {
+                PhoneNumber = phoneNumber.phoneNumber
+            });
+            if (result.Success)
+            {
+                return Ok(result.Result);
+            }
+            return BadRequest(result.ErrorMessage);
         }
 
         [HttpGet]

@@ -1,5 +1,6 @@
 ﻿using Domain.Aggregate.DomainAggregates.UserAggregate;
 using Domain.Core.Shared;
+using Sieve.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,10 +15,12 @@ namespace Domain.Aggregate.DomainAggregates.RoleAggregate
         private Guid _securityStamp;
         #endregion
         #region Properties
+        [Sieve(CanFilter = true, CanSort = true)]
         public string Name
         {
             get => _name; set => SetWithNotify(value, ref _name);
         }
+        [Sieve(CanFilter = true, CanSort = true)]
         public string Description
         {
             get => _description; set => SetWithNotify(value, ref _description);
@@ -29,7 +32,7 @@ namespace Domain.Aggregate.DomainAggregates.RoleAggregate
         }
 
         public ICollection<AccessLevel> AccessLevels { get; set; }
-        public ICollection<UserRole> UserRoles { get; set; }
+        public UserRole UserRoles { get; set; }
         #endregion
         #region Ctor
         public Role(string name, string description)

@@ -26,26 +26,20 @@ namespace CommandHandler.AccessLevelCommandHandlers
             {
                 try
                 {
-                    try
+                    var findRole = await unitOfWork.RoleRepository.GetRoleByIdAsync(request.RoleId, cancellationToken);
+                    findRole.Result.UpdateSecurityStamp();
+                    if (findRole.Result != null)
                     {
-                        var findRole = await unitOfWork.RoleRepository.GetRoleByIdAsync(request.RoleId, cancellationToken);
-                        findRole.Result.UpdateSecurityStamp();
-                        if (findRole.Result != null)
-                        {
-                            unitOfWork.RoleRepository.Update(findRole.Result, cancellationToken);
-                            unitOfWork.CommitSaveChange();
-                            return OperationResult<string>.BuildSuccessResult("Add Success");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        return OperationResult<string>.BuildFailure(ex.Message);
+                        unitOfWork.RoleRepository.Update(findRole.Result, cancellationToken);
+                        await unitOfWork.CommitSaveChangeAsync();
+                        return OperationResult<string>.BuildSuccessResult("Add Success");
                     }
                 }
                 catch (Exception ex)
                 {
                     return OperationResult<string>.BuildFailure(ex.Message);
                 }
+
             }
             return OperationResult<string>.BuildFailure(result.ErrorMessage);
         }

@@ -6,7 +6,7 @@ using Framework.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Filmstan.Controllers
+namespace Command.Controllers
 {
     [ApiController]
     [Route("[controller]")]

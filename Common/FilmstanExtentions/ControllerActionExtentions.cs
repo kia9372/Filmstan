@@ -1,4 +1,6 @@
-﻿using DataTransfer.ControllerDtos;
+﻿using Common.StringExtentions;
+using DataTransfer.ControllerDtos;
+using Domain.Aggregate.DomainAggregates.RoleAggregate;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,6 +49,44 @@ namespace Common.FilmstanExtentions
                 }
             }
             return actionInfoList;
+        }
+
+        public static List<ControllerDto> GetLisOfController(this Assembly assembly)
+        {
+            List<ControllerDto> permissionList = new List<ControllerDto>();
+            var ass = Assembly.GetEntryAssembly();
+            foreach (var controller in Assembly.GetEntryAssembly().GetControllerList<IPermissionMarker>())
+            {
+                permissionList.Add(new ControllerDto
+                {
+                    ControllerName = controller.Name.RemoveString("Controller"),
+                    ActionInfos = controller.FindActionsOfController(),
+                    ControllerDisplayName = controller.GetNameByDispayAttribute()
+                });
+            }
+            return permissionList;
+        }
+
+        public static IEnumerable<ControllerDto> FindSelectedAccess(this IEnumerable<AccessLevel> accessList)
+        {
+
+            var controllerList = Assembly.GetExecutingAssembly().GetLisOfController();
+            controllerList.ForEach(controllers =>
+           {
+               controllers.ActionInfos.ForEach(actions =>
+               {
+                   foreach (var item in accessList)
+                   {
+                       var con = $"{controllers.ControllerName}:{actions.ActionName}";
+                       if ($"{controllers.ControllerName}:{actions.ActionName}" == item.Access)
+                       {
+                           actions.IsSelected = true;
+                       }
+                   }
+               });
+            }
+           );
+            return controllerList;
         }
     }
 }

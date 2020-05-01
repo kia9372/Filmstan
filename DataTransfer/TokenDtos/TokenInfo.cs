@@ -9,7 +9,9 @@ namespace DataTransfer.TokenDtos
         public string UserName { get; set; }
         public Guid UserSecurityStamp { get; set; }
         public Guid RoleSecurityStamp { get; set; }
+        public Guid RoleId { get; set; }
         public Guid UserId { get; set; }
+        public bool IsActive { get; set; }
         public List<string> AccessLevels { get; set; }
     }
 }

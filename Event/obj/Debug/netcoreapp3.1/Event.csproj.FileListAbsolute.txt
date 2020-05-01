@@ -10,9 +10,9 @@ E:\MyProject\Filmstan\Event\obj\Debug\netcoreapp3.1\Event.csprojAssemblyReferenc
 E:\MyProject\Filmstan\BackEnd\Event\bin\Debug\netcoreapp3.1\Event.deps.json
 E:\MyProject\Filmstan\BackEnd\Event\bin\Debug\netcoreapp3.1\Event.dll
 E:\MyProject\Filmstan\BackEnd\Event\bin\Debug\netcoreapp3.1\Event.pdb
-E:\MyProject\Filmstan\BackEnd\Event\obj\Debug\netcoreapp3.1\Event.csprojAssemblyReference.cache
 E:\MyProject\Filmstan\BackEnd\Event\obj\Debug\netcoreapp3.1\Event.csproj.CoreCompileInputs.cache
 E:\MyProject\Filmstan\BackEnd\Event\obj\Debug\netcoreapp3.1\Event.AssemblyInfoInputs.cache
 E:\MyProject\Filmstan\BackEnd\Event\obj\Debug\netcoreapp3.1\Event.AssemblyInfo.cs
 E:\MyProject\Filmstan\BackEnd\Event\obj\Debug\netcoreapp3.1\Event.dll
 E:\MyProject\Filmstan\BackEnd\Event\obj\Debug\netcoreapp3.1\Event.pdb
+E:\MyProject\Filmstan\BackEnd\Event\obj\Debug\netcoreapp3.1\Event.csprojAssemblyReference.cache

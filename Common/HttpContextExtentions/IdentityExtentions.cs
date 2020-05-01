@@ -29,6 +29,11 @@ namespace Common.HttpContextExtentions
             return identity?.FindFirstValue(ClaimTypes.NameIdentifier);
         }
 
+        public static string GetUserRoleId(this IIdentity identity)
+        {
+            return identity?.FindFirstValue(ClaimTypes.Role);
+        }
+
         public static T GetUserId<T>(this IIdentity identity) where T : IConvertible
         {
             var userId = identity?.GetUserId();

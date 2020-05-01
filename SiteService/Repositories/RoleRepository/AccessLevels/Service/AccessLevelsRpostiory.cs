@@ -3,15 +3,15 @@ using DAL.EF.Context;
 using DataTransfer.RoleDtos;
 using Domain.Aggregate.DomainAggregates.RoleAggregate;
 using Microsoft.EntityFrameworkCore;
-using SiteService.Repositories.RoleRepository.AccessLevel.Contract;
+using SiteService.Repositories.RoleRepository.AccessLevels.Contract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DAL.EF.Repositories.RoleRepository
+namespace SiteService.Repositories.RoleRepository.AccessLevels.Service
 {
-    internal class AccessLevelsRpostiory : IAccessLevelRepository
+    public class AccessLevelsRpostiory : IAccessLevelRepository
     {
         private FilmstanContext context;
         private DbSet<AccessLevel> AccessLevels { get; set; }
@@ -34,7 +34,7 @@ namespace DAL.EF.Repositories.RoleRepository
                 {
                     foreach (var item in newAccess)
                     {
-                        context.Add(new AccessLevel
+                        AccessLevels.Add(new AccessLevel
                         {
                             Access = item,
                             RoleId = accessLevels.RoleId
@@ -50,7 +50,7 @@ namespace DAL.EF.Repositories.RoleRepository
                         var accClaim = currentRoleAccessValue.SingleOrDefault(x => x.Access == item);
                         if (accClaim != null)
                         {
-                            context.Remove(accClaim);
+                            AccessLevels.Remove(accClaim);
                         }
                     }
                 }
@@ -63,7 +63,7 @@ namespace DAL.EF.Repositories.RoleRepository
             }
         }
 
-        private IEnumerable<AccessLevel> GetAccessLevels(Guid roleId)
+        public IEnumerable<AccessLevel> GetAccessLevels(Guid roleId)
         {
             return AccessLevels.AsNoTracking().Where(x => x.RoleId == roleId).ToList();
         }

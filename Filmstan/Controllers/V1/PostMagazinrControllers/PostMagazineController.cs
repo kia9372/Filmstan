@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Query.PostMagazaineQueries;
 using Travel.Framework.Base;
 
-namespace Filmstan.Controllers.V1.PostMagazinrControllers
+namespace Command.Controllers.V1.PostMagazinrControllers
 {
     [DisplayName("مدیریت پست ها")]
     public class PostMagazineController : BaseController

@@ -1,5 +1,6 @@
 ﻿using Domain.Aggregate.DomainAggregates.PostMagAggregate;
 using Domain.Core.Shared;
+using Sieve.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,21 +26,30 @@ namespace Domain.Aggregate.DomainAggregates.UserAggregate
         private DateTimeOffset? _lockedEnd;
         #endregion
         #region Properties
+        [Sieve(CanFilter = true, CanSort = true)]
         public string Username { get => _userName; set => SetWithNotify(value, ref _userName); }
+        [Sieve(CanFilter = true, CanSort = true)]
         public string Name { get => _name; set => SetWithNotify(value, ref _name); }
+        [Sieve(CanFilter = true, CanSort = true)]
         public string Family { get => _family; set => SetWithNotify(value, ref _family); }
         public string Password { get => _password; set => SetWithNotify(value, ref _password); }
         public string PhoneNumber { get => _phoneNumber; set => SetWithNotify(value, ref _phoneNumber); }
         public Guid SecurityStamp { get => _securityStamp; set => SetWithNotify(value, ref _securityStamp); }
+        [Sieve(CanFilter = true, CanSort = true)]
         public string? Email { get => _email; set => SetWithNotify(value, ref _email); }
         public string? Photo { get => _photo; set => SetWithNotify(value, ref _photo); }
+        [Sieve(CanFilter = true, CanSort = true)]
         public int AccountFaile { get => _accountFaile; set => SetWithNotify(value, ref _accountFaile); }
+        [Sieve(CanFilter = true, CanSort = true)]
         public bool IsActive { get => _isActive; set => SetWithNotify(value, ref _isActive); }
+        [Sieve(CanFilter = true, CanSort = true)]
         public bool IsLockedEnd { get => _isLockedEnd; set => SetWithNotify(value, ref _isLockedEnd); }
+        [Sieve(CanFilter = true, CanSort = true)]
         public bool ConfirmPhoneNumber { get => _confirmPhoneNumber; set => SetWithNotify(value, ref _confirmPhoneNumber); }
+        [Sieve(CanFilter = true, CanSort = true)]
         public bool ConfirmEmail { get => _confirmEmail; set => SetWithNotify(value, ref _confirmEmail); }
         public DateTimeOffset? LockedEnd { get => _lockedEnd; set => SetWithNotify(value, ref _lockedEnd); }
-        public ICollection<UserRole> UserRoles { get; set; }
+        public UserRole UserRoles { get; set; }
         public ICollection<ActivationCode> ActivationCodes { get; set; }
         public ICollection<PostMagazine> PostMagazines { get; set; }
         #endregion

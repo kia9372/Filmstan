@@ -1,5 +1,6 @@
 ﻿using Domain.Aggregate.DomainAggregates.RoleAggregate;
 using Domain.Core.Shared;
+using Sieve.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,7 +14,9 @@ namespace Domain.Aggregate.DomainAggregates.UserAggregate
         private Guid _userId;
         #endregion
         #region Properties
+        [Sieve(CanFilter = true, CanSort = true)]
         public Guid RoleId { get => _roleId; private set => SetWithNotify(value, ref _roleId); }
+        [Sieve(CanFilter = true, CanSort = true)]
         public Guid UserId { get => _userId; private set => SetWithNotify(value, ref _userId); }
         public User User { get; set; }
         public Role Role { get; set; }

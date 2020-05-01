@@ -1,8 +1,9 @@
 ﻿using Common.LifeTime;
 using Common.Operation;
-using DAL.EF.Repositories.RoleRepository;
+using DataTransfer;
+using DataTransfer.RoleDtos;
 using Domain.Aggregate.DomainAggregates.RoleAggregate;
-using SiteService.Repositories.RoleRepository.AccessLevel.Contract;
+using SiteService.Repositories.RoleRepository.AccessLevels.Contract;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,8 @@ namespace SiteService.Repositories.RoleRepository.RoleRepo.Contract
         IAccessLevelRepository AccessLevelRepository { get; set; }
         Task<OperationResult<string>> AddAsync(Role role, CancellationToken cancellation);
         OperationResult<bool> Update(Role role, CancellationToken cancellation);
-        Task<OperationResult<IEnumerable<Role>>> GetAllRoleAsync(CancellationToken cancellation);
+        Task<OperationResult<GetAllPaging<Role>>> GetAllRolePagingAsync(GetAllFormQuery formQuery, CancellationToken cancellation);
         Task<OperationResult<Role>> GetRoleByIdAsync(Guid key, CancellationToken cancellation);
+        Task<OperationResult<IEnumerable<Role>>> GetAllRole(CancellationToken cancellation);
     }
 }

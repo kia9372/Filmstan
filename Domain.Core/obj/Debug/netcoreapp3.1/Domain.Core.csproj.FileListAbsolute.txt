@@ -10,8 +10,8 @@ E:\MyProject\Filmstan\BackEnd\Domain.Core\bin\Debug\netcoreapp3.1\Domain.Core.de
 E:\MyProject\Filmstan\BackEnd\Domain.Core\bin\Debug\netcoreapp3.1\Domain.Core.dll
 E:\MyProject\Filmstan\BackEnd\Domain.Core\bin\Debug\netcoreapp3.1\Domain.Core.pdb
 E:\MyProject\Filmstan\BackEnd\Domain.Core\obj\Debug\netcoreapp3.1\Domain.Core.csprojAssemblyReference.cache
-E:\MyProject\Filmstan\BackEnd\Domain.Core\obj\Debug\netcoreapp3.1\Domain.Core.csproj.CoreCompileInputs.cache
 E:\MyProject\Filmstan\BackEnd\Domain.Core\obj\Debug\netcoreapp3.1\Domain.Core.AssemblyInfoInputs.cache
 E:\MyProject\Filmstan\BackEnd\Domain.Core\obj\Debug\netcoreapp3.1\Domain.Core.AssemblyInfo.cs
 E:\MyProject\Filmstan\BackEnd\Domain.Core\obj\Debug\netcoreapp3.1\Domain.Core.dll
 E:\MyProject\Filmstan\BackEnd\Domain.Core\obj\Debug\netcoreapp3.1\Domain.Core.pdb
+E:\MyProject\Filmstan\BackEnd\Domain.Core\obj\Debug\netcoreapp3.1\Domain.Core.csproj.CoreCompileInputs.cache

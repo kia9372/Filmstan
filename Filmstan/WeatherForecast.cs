@@ -1,6 +1,6 @@
 using System;
 
-namespace Filmstan
+namespace Command
 {
     public class WeatherForecast
     {

@@ -5,17 +5,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using Command.UserActivationCommands;
 using Command.UserCommands;
+using Common;
 using Common.Utilitis;
 using DataTransfer.ActivationCodeDtos;
+using DataTransfer.RoleDtos;
 using DataTransfer.UserDtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Query.UserQueries;
 using Travel.Framework.Base;
 
-namespace Filmstan.Controllers.V1.UserControllers
+namespace Command.Controllers.V1.UserControllers
 {
     [DisplayName("مدیریت کاربران ")]
-    public class UserController : BaseController , IPermissionMarker
+    public class UserController : BaseController, IPermissionMarker
     {
         private readonly IMediator mediator;
 
@@ -61,6 +64,23 @@ namespace Filmstan.Controllers.V1.UserControllers
             return BadRequest(verificationCode.ErrorMessage);
         }
 
+        [HttpGet]
+        [DisplayName("نمایش لیست کاربران به صورت صفحه بندی شده")]
+        public async Task<IActionResult> GetAllUserPaging([FromQuery]GetAllFormQuery getAllRole)
+        {
+            var res = await mediator.Send(new GetAllUserPagingQuery
+            {
+                Page = getAllRole.Page,
+                PageSize = getAllRole.PageSize,
+                Filters = getAllRole.Filters,
+                Sorts = getAllRole.Sorts
+            });
+            if (res.Success)
+            {
+                return Ok(res.Result);
+            }
+            return BadRequest(res.ErrorMessage);
+        }
         [HttpPut]
         [DisplayName("تغییر ایمیل ")]
         public async Task<IActionResult> ChangeEmail(ChangeEmailDto emailDto)

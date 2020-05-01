@@ -51,8 +51,9 @@ namespace Framework.Middllwares
             }
             catch (Exception ex)
             {
-                var result = new ReturnResult(false, Common.SiteEnums.StatusCode.ServerError, ex.Message);
-                await httpContext.Response.WriteAsync(result.Serializer());
+                message = ex.Message;
+                await ReponseWriteAsync();
+
             }
             async Task ReponseWriteAsync()
             {

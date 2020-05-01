@@ -1,5 +1,7 @@
 ﻿using Common.LifeTime;
 using Common.Operation;
+using DataTransfer;
+using DataTransfer.RoleDtos;
 using Domain.Aggregate.DomainAggregates.CategoryAggregate;
 using System;
 using System.Collections.Generic;
@@ -14,5 +16,6 @@ namespace SiteService.Repositories.CategoryRepositories.Contract
         Task<OperationResult<IEnumerable<Category>>> GetAllCategoryAsync(CancellationToken cancellation);
         Task<OperationResult<Category>> GetCategoryByIdAsync(Guid id, CancellationToken cancellation);
         OperationResult<string> UpdateCategory(Category category, CancellationToken cancellation);
+        Task<OperationResult<GetAllPaging<Category>>> GetAllCategoryPagingAsync(GetAllFormQuery formQuery, CancellationToken cancellation);
     }
 }

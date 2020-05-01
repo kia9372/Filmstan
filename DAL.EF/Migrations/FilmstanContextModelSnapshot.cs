@@ -22,6 +22,7 @@ namespace DAL.EF.Migrations
             modelBuilder.Entity("Domain.Aggregate.DomainAggregates.CategoryAggregate.Category", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsDelete")
@@ -286,20 +287,13 @@ namespace DAL.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
+                    b.HasIndex("RoleId")
+                        .IsUnique();
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("UserRole");
-                });
-
-            modelBuilder.Entity("Domain.Aggregate.DomainAggregates.CategoryAggregate.Category", b =>
-                {
-                    b.HasOne("Domain.Aggregate.DomainAggregates.CategoryAggregate.Category", "Categorie")
-                        .WithMany("Categories")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Aggregate.DomainAggregates.PostMagAggregate.PostMagazine", b =>
@@ -372,14 +366,14 @@ namespace DAL.EF.Migrations
             modelBuilder.Entity("Domain.Aggregate.DomainAggregates.UserAggregate.UserRole", b =>
                 {
                     b.HasOne("Domain.Aggregate.DomainAggregates.RoleAggregate.Role", "Role")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("RoleId")
+                        .WithOne("UserRoles")
+                        .HasForeignKey("Domain.Aggregate.DomainAggregates.UserAggregate.UserRole", "RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Domain.Aggregate.DomainAggregates.UserAggregate.User", "User")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("UserId")
+                        .WithOne("UserRoles")
+                        .HasForeignKey("Domain.Aggregate.DomainAggregates.UserAggregate.UserRole", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

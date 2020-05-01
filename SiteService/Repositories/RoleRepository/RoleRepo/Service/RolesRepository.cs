@@ -2,13 +2,18 @@
 using Common.Operation;
 using Common.RedisThriedLevelCach;
 using DAL.EF.Context;
-using DAL.EF.Repositories.RoleRepository;
+using DataTransfer;
+using DataTransfer.RoleDtos;
 using Domain.Aggregate.DomainAggregates.RoleAggregate;
 using Microsoft.EntityFrameworkCore;
-using SiteService.Repositories.RoleRepository.AccessLevel.Contract;
+using Sieve.Models;
+using Sieve.Services;
+using SiteService.Repositories.RoleRepository.AccessLevels.Contract;
+using SiteService.Repositories.RoleRepository.AccessLevels.Service;
 using SiteService.Repositories.RoleRepository.RoleRepo.Contract;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,14 +24,17 @@ namespace SiteService.Repositories.RoleRepository.RoleRepo.Service
     {
         public IAccessLevelRepository AccessLevelRepository { get; set; }
         private readonly FilmstanContext context;
+        private readonly ISieveProcessor sieveProcessor;
+
         private DbSet<Role> RoleEntite { get; set; }
         /// <summary>
         /// RoleRepository
         /// </summary>
         /// <param name="context"></param>
-        public RolesRepository(FilmstanContext context)
+        public RolesRepository(FilmstanContext context, ISieveProcessor sieveProcessor)
         {
             this.context = context;
+            this.sieveProcessor = sieveProcessor;
             AccessLevelRepository = new AccessLevelsRpostiory(context);
             RoleEntite = context.Set<Role>();
         }
@@ -58,7 +66,7 @@ namespace SiteService.Repositories.RoleRepository.RoleRepo.Service
         {
             try
             {
-                var role = await RoleEntite.FirstOrDefaultAsync(x => x.Id == key);
+                var role = await RoleEntite.AsNoTracking().FirstOrDefaultAsync(x => x.Id == key);
                 return OperationResult<Role>.BuildSuccessResult(role);
             }
             catch (Exception ex)
@@ -71,11 +79,40 @@ namespace SiteService.Repositories.RoleRepository.RoleRepo.Service
         /// </summary>
         /// <param name="cancellation"></param>
         /// <returns></returns>
-        public async Task<OperationResult<IEnumerable<Role>>> GetAllRoleAsync(CancellationToken cancellation)
+        public async Task<OperationResult<GetAllPaging<Role>>> GetAllRolePagingAsync(GetAllFormQuery formQuery, CancellationToken cancellation)
         {
             try
             {
-               var role=await RoleEntite.AsNoTracking().ToListAsync();
+                var role = RoleEntite.AsNoTracking();
+                var sieveModel = new SieveModel
+                {
+                    PageSize = formQuery.PageSize,
+                    Filters = formQuery.Filters,
+                    Page = formQuery.Page,
+                    Sorts = formQuery.Sorts
+                };
+                var result = sieveProcessor.Apply(sieveModel, role);
+                return OperationResult<GetAllPaging<Role>>.BuildSuccessResult(new GetAllPaging<Role>
+                {
+                    Records = result.AsEnumerable(),
+                    TotalCount = await RoleEntite.CountAsync()
+                });
+            }
+            catch (Exception ex)
+            {
+                return OperationResult<GetAllPaging<Role>>.BuildFailure(ex);
+            }
+        }
+        /// <summary>
+        /// Get All Role For Dropdown
+        /// </summary>
+        /// <param name="cancellation"></param>
+        /// <returns></returns>
+        public async Task<OperationResult<IEnumerable<Role>>> GetAllRole(CancellationToken cancellation)
+        {
+            try
+            {
+                var role = await RoleEntite.AsNoTracking().ToListAsync();
                 return OperationResult<IEnumerable<Role>>.BuildSuccessResult(role);
             }
             catch (Exception ex)

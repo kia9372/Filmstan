@@ -24,7 +24,7 @@ namespace SiteService.Services.Implement
         {
             this._setting = setting.Value;
         }
-        private async Task<string> GenerateToken(User user, int lifeTime)
+        private async Task<string> GenerateToken(TokenInfo user, int lifeTime)
         {
             var secretKey = Encoding.UTF8.GetBytes(_setting.JwtSetting.SecretKey); // longer that 16 character
             var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(secretKey)
@@ -53,7 +53,7 @@ namespace SiteService.Services.Implement
         }
 
 
-        private IEnumerable<Claim> CustomClaims(User user)
+        private IEnumerable<Claim> CustomClaims(TokenInfo user)
         {
             /// Create Custom Claim
             var securityStampClaimType = new ClaimsIdentityOptions().SecurityStampClaimType;
@@ -62,19 +62,19 @@ namespace SiteService.Services.Implement
             /// Identity Claim
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name,user.Username),
-                new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
-                new Claim(securityStampClaimType,user.SecurityStamp.ToString()),
-                new Claim(rolesecurityStampClaimType,user.UserRoles.FirstOrDefault().Role.SecurityStamp.ToString()),
-                new Claim(roleId,user.UserRoles.FirstOrDefault().Role.Id.ToString())
+                new Claim(ClaimTypes.Name,user.UserName),
+                new Claim(ClaimTypes.NameIdentifier,user.UserId.ToString()),
+                new Claim(securityStampClaimType,user.UserSecurityStamp.ToString()),
+                new Claim(rolesecurityStampClaimType,user.RoleSecurityStamp.ToString()),
+                new Claim(ClaimTypes.Role,user.RoleId.ToString())
             };
             /// User Permissions Claim 
-            foreach (var claim in user.UserRoles.FirstOrDefault().Role.AccessLevels.Select(role => role.Access))
+            foreach (var claim in user.AccessLevels)
                 claims.Add(new Claim("Permission", claim));
             return claims;
         }
 
-        public async Task<string> GenerateToken(User user)
+        public async Task<string> GenerateToken(TokenInfo user)
         {
             return await GenerateToken(user, 90);
 

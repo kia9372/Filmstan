@@ -11,7 +11,7 @@ namespace Domain.Aggregate.AggregatesConfigurations.CategoryConfigurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.HasOne(x => x.Categorie).WithMany(x => x.Categories).HasForeignKey(x => x.Id);
+            //builder.HasOne(x => x.Categorie).WithMany(x => x.Categories).HasForeignKey(x => x.Id);
             builder.HasQueryFilter(x => !x.IsDelete);
         }
     }

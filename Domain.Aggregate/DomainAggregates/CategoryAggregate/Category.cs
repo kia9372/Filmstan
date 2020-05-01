@@ -1,5 +1,6 @@
 ﻿using Domain.Aggregate.DomainAggregates.PostMagAggregate;
 using Domain.Core.Shared;
+using Sieve.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,10 +14,10 @@ namespace Domain.Aggregate.DomainAggregates.CategoryAggregate
         private Guid? _parentId;
         #endregion
         #region Properties
+        [Sieve(CanFilter = true, CanSort = true)]
         public Guid? ParentId { get => _parentId; set => SetWithNotify(value, ref _parentId); }
+        [Sieve(CanFilter = true, CanSort = true)]
         public string Name { get => _name; set => SetWithNotify(value, ref _name); }
-        public Category Categorie { get; set; }
-        public HashSet<Category> Categories { get; set; }
         public ICollection<PostMagazine> PostMagazines { get; set; }
         #endregion
         public Category()

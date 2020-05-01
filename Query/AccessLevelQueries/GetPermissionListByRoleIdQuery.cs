@@ -1,4 +1,5 @@
 ﻿using Common.Operation;
+using DataTransfer.ControllerDtos;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -7,8 +8,8 @@ using System.Text;
 
 namespace Query.AccessLevelQueries
 {
-    public class GetPermissionListQuery : IRequest<OperationResult<string>>
+    public class GetPermissionListByRoleIdQuery : IRequest<OperationResult<IEnumerable<ControllerDto>>>
     {
-        public Assembly Assembly { get; set; }
+        public Guid RoleId { get; set; }
     }
 }

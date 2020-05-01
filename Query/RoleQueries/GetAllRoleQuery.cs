@@ -7,11 +7,7 @@ using System.Text;
 
 namespace Query.RoleQueries
 {
-    public class GetRoleListQuery : IRequest<OperationResult<IEnumerable<Role>>>
+    public class GetAllRoleQuery : IRequest<OperationResult<IEnumerable<Role>>>
     {
-        public GetRoleListQuery()
-        {
-
-        }
     }
 }

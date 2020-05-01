@@ -1,4 +1,5 @@
 ﻿using Common.Operation;
+using DataTransfer;
 using Domain.Aggregate.DomainAggregates.RoleAggregate;
 using MediatR;
 using Query.RoleQueries;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace QueryHandler.RoleQueriesHandler
 {
-    public class GetRoleListQueryHandler : IRequestHandler<GetRoleListQuery, OperationResult<IEnumerable<Role>>>
+    public class GetRoleListQueryHandler : IRequestHandler<GetRoleListPagingQuery, OperationResult<GetAllPaging<Role>>>
     {
         private readonly IDomainUnitOfWork unitOfWork;
 
@@ -19,14 +20,14 @@ namespace QueryHandler.RoleQueriesHandler
         {
             this.unitOfWork = unitOfWork;
         }
-        public async Task<OperationResult<IEnumerable<Role>>> Handle(GetRoleListQuery request, CancellationToken cancellationToken)
+        public async Task<OperationResult<GetAllPaging<Role>>> Handle(GetRoleListPagingQuery request, CancellationToken cancellationToken)
         {
-            var role = await unitOfWork.RoleRepository.GetAllRoleAsync(cancellationToken);
+            var role = await unitOfWork.RoleRepository.GetAllRolePagingAsync(request, cancellationToken);
             if (role.Result != null)
             {
-                return OperationResult<IEnumerable<Role>>.BuildSuccessResult(role.Result);
+                return OperationResult<GetAllPaging<Role>>.BuildSuccessResult(role.Result);
             }
-            return OperationResult<IEnumerable<Role>>.BuildFailure(role.ErrorMessage);
+            return OperationResult<GetAllPaging<Role>>.BuildFailure(role.ErrorMessage);
         }
     }
 }

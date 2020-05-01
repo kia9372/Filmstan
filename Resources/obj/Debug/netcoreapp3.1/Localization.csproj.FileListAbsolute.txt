@@ -22,7 +22,6 @@ E:\MyProject\Filmstan\BackEnd\Resources\bin\Debug\netcoreapp3.1\Localization.dll
 E:\MyProject\Filmstan\BackEnd\Resources\bin\Debug\netcoreapp3.1\Localization.pdb
 E:\MyProject\Filmstan\BackEnd\Resources\bin\Debug\netcoreapp3.1\en\Localization.resources.dll
 E:\MyProject\Filmstan\BackEnd\Resources\bin\Debug\netcoreapp3.1\fa\Localization.resources.dll
-E:\MyProject\Filmstan\BackEnd\Resources\obj\Debug\netcoreapp3.1\Localization.csprojAssemblyReference.cache
 E:\MyProject\Filmstan\BackEnd\Resources\obj\Debug\netcoreapp3.1\Localization.Resources.Controllers.V1.RoleControllers.RoleControllerShared.en.resources
 E:\MyProject\Filmstan\BackEnd\Resources\obj\Debug\netcoreapp3.1\Localization.Resources.Controllers.V1.RoleControllers.RoleControllerShared.fa.resources
 E:\MyProject\Filmstan\BackEnd\Resources\obj\Debug\netcoreapp3.1\Localization.Resources.Test.Translate.en.resources
@@ -36,3 +35,4 @@ E:\MyProject\Filmstan\BackEnd\Resources\obj\Debug\netcoreapp3.1\en\Localization.
 E:\MyProject\Filmstan\BackEnd\Resources\obj\Debug\netcoreapp3.1\fa\Localization.resources.dll
 E:\MyProject\Filmstan\BackEnd\Resources\obj\Debug\netcoreapp3.1\Localization.dll
 E:\MyProject\Filmstan\BackEnd\Resources\obj\Debug\netcoreapp3.1\Localization.pdb
+E:\MyProject\Filmstan\BackEnd\Resources\obj\Debug\netcoreapp3.1\Localization.csprojAssemblyReference.cache

@@ -1,6 +1,9 @@
 ﻿using Common.LifeTime;
 using Common.Operation;
+using DataTransfer;
+using DataTransfer.RoleDtos;
 using DataTransfer.TokenDtos;
+using DataTransfer.UserDtos;
 using DataTransfer.UserInformationDtos;
 using Domain.Aggregate.DomainAggregates.UserAggregate;
 using Domain.Core.UnitOfWork;
@@ -27,7 +30,8 @@ namespace SiteService.Repositories.UserRepository.Contract
         Task<OperationResult<User>> GetUserByEmailAsync(string email, CancellationToken cancellation);
         Task<OperationResult<User>> GetUserByUsernameAsync(string userName, CancellationToken cancellation);
         Task<OperationResult<User>> GetUserByPhoneNumberAsync(string phoneNumber, CancellationToken cancellation);
-        Task<OperationResult<User>> GetUserTokenInfo(Guid id);
+        Task<OperationResult<TokenInfo>> GetUserTokenInfo(Guid id);
         Task<OperationResult<UserInformationDto>> GetUserInformation(Guid id);
+        Task<OperationResult<GetAllPaging<UserPagingDto>>> GetAllCategoryPagingAsync(GetAllFormQuery formQuery, CancellationToken cancellation);
     }
 }

@@ -1,8 +1,14 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Command.RoleCommands;
+using Common;
+using DataTransfer;
 using DataTransfer.RoleDtos;
+using Domain.Aggregate.DomainAggregates.RoleAggregate;
 using Framework.Filters;
 using Framework.ResponseFormatter.ResultApi;
 using Localization.Resources.Controllers.V1.RoleControllers;
@@ -11,26 +17,30 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Query.RoleQueries;
+using Sieve.Models;
+using Sieve.Services;
 using Travel.Framework.Base;
 
 
-namespace Filmstan.Controllers.V1.RoleControllers
+namespace Command.Controllers.V1.RoleControllers
 {
-    [Authorize]
+
     [DisplayName("مدیریت نقش ها")]
-    public class RoleController : BaseController , IPermissionMarker
+    public class RoleController : BaseController, IPermissionMarker
     {
         private readonly IMediator mediator;
+        private readonly ISieveProcessor sieveProcessor;
         private readonly IStringLocalizer<RoleControllerShared> _localizer;
 
-        public RoleController(IMediator mediator, IStringLocalizer<RoleControllerShared> localizer) : base(mediator)
+        public RoleController(IMediator mediator, ISieveProcessor sieveProcessor, IStringLocalizer<RoleControllerShared> localizer) : base(mediator)
         {
             this.mediator = mediator;
+            this.sieveProcessor = sieveProcessor;
             this._localizer = localizer;
         }
 
         [HttpPost]
-    //   [AuthorizeAccess("")]
+        //   [AuthorizeAccess("")]
         [DisplayName("ایجاد نقش جدید")]
         public async Task<IActionResult> AddRole(AddRoleDto addRole)
         {
@@ -109,16 +119,28 @@ namespace Filmstan.Controllers.V1.RoleControllers
 
         [HttpGet]
         [DisplayName("لیست نقش ها")]
-        public async Task<IActionResult> GetRoles()
+        public async Task<IActionResult> GetAllRoles()
+        {
+            var getAll = await mediator.Send(new GetAllRoleQuery());
+            if (getAll.Success)
+            {
+                return Ok(getAll.Result);
+            }
+            return BadRequest(getAll.ErrorMessage);
+        }
+
+        [HttpGet]
+        [DisplayName("لیست نقش ها به صورت صفحه بندی")]
+        public async Task<IActionResult> GetRoles([FromQuery]GetAllFormQuery getAllRole)
         {
             try
             {
-                var add = await mediator.Send(new GetRoleListQuery());
-                if (add.Success)
+                var res = await mediator.Send(new GetRoleListPagingQuery { Sorts = getAllRole.Sorts, Page = getAllRole.Page, Filters = getAllRole.Filters, PageSize = getAllRole.PageSize });
+                if (res.Success)
                 {
-                    return Ok(add.Result);
+                    return Ok(res.Result);
                 }
-                return BadRequest(add.ErrorMessage);
+                return BadRequest(res.ErrorMessage);
             }
             catch (Exception ex)
             {
