@@ -10,4 +10,12 @@ namespace BehaviorHandler.FlientValidation.UserValidation
             RuleFor(x => x.Id).NotEmpty().NotNull();
         }
     }
+
+    public class ChangeUserEmailUserValidation : AbstractValidator<ChangeUserEmailStatusDto>
+    {
+        public ChangeUserEmailUserValidation()
+        {
+            RuleFor(x => x.Id).NotEmpty().NotNull();
+        }
+    }
 }

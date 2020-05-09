@@ -19,6 +19,31 @@ namespace DAL.EF.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Domain.Aggregate.DomainAggregates.CategoryAggregate.Brand", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("BrandName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("IsoBrandName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Brand");
+                });
+
             modelBuilder.Entity("Domain.Aggregate.DomainAggregates.CategoryAggregate.Category", b =>
                 {
                     b.Property<Guid>("Id")
@@ -37,6 +62,31 @@ namespace DAL.EF.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("Domain.Aggregate.DomainAggregates.CategoryAggregate.CategoryProperty", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("CategoryPropertyType")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PropName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("CategoryProperty");
                 });
 
             modelBuilder.Entity("Domain.Aggregate.DomainAggregates.LoggAggregate.Logs", b =>
@@ -294,6 +344,24 @@ namespace DAL.EF.Migrations
                         .IsUnique();
 
                     b.ToTable("UserRole");
+                });
+
+            modelBuilder.Entity("Domain.Aggregate.DomainAggregates.CategoryAggregate.Brand", b =>
+                {
+                    b.HasOne("Domain.Aggregate.DomainAggregates.CategoryAggregate.Category", "Category")
+                        .WithMany("Brands")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Aggregate.DomainAggregates.CategoryAggregate.CategoryProperty", b =>
+                {
+                    b.HasOne("Domain.Aggregate.DomainAggregates.CategoryAggregate.Category", "Category")
+                        .WithMany("CategoryProperties")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Aggregate.DomainAggregates.PostMagAggregate.PostMagazine", b =>

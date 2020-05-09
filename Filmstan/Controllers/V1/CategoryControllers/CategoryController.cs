@@ -4,14 +4,17 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Command.CategoryCommands;
+using Command.CategoryPropertyCommands;
 using Common;
 using DataTransfer;
 using DataTransfer.CategoryDtos;
+using DataTransfer.CategoryPropertyDto;
 using DataTransfer.RoleDtos;
 using Domain.Aggregate.DomainAggregates.CategoryAggregate;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using Query.CategoryQueries;
 using Sieve.Models;
 using Sieve.Services;
@@ -31,6 +34,51 @@ namespace Command.Controllers.V1.CategoryControllers
             this.sieveProcessor = sieveProcessor;
         }
 
+        [HttpPost]
+        [DisplayName(" ایجاد ویژگی جدید به دسته ")]
+        public async Task<IActionResult> AddCategoryProperty(List<CategoryPropertyDto> dto)
+        {
+            var result = await mediator.Send(new CreateCategoryPropertyCommand
+            {
+                CategoryPropertyDtos = dto
+            });
+            if (result.Success)
+            {
+                return Ok(result.Result);
+            }
+            return BadRequest(result.ErrorMessage);
+        }
+
+        [HttpDelete]
+        [DisplayName("  حذف ویژگی یک دسته ")]
+        public async Task<IActionResult> DeleteCategoryProperty(Guid dto)
+        {
+            var result = await mediator.Send(new DeleteCategoryPropertyCommand
+            {
+                CategoryPropertyId = dto
+            });
+            if (result.Success)
+            {
+                return Ok(result.Result);
+            }
+            return BadRequest(result.ErrorMessage);
+        }
+
+        [HttpGet]
+        [DisplayName(" لیست ویژگی های یک دسته ")]
+        [Route("{categoryId}")]
+        public async Task<IActionResult> GetAllCategoryPropertyByCategoryId(Guid categoryId)
+        {
+            var result = await mediator.Send(new GetAllCategoryPropertyCommand
+            {
+                CategoryPropertyId = categoryId
+            });
+            if (result.Success)
+            {
+                return Ok(result.Result);
+            }
+            return BadRequest(result.ErrorMessage);
+        }
         [HttpPost]
         [DisplayName("ایجاد دسته جدید")]
         public async Task<IActionResult> AddCategoryAsync(AddCategoryDto categoryDto)

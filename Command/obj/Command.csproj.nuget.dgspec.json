@@ -183,6 +183,9 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
+              "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj"
+              },
               "E:\\MyProject\\Filmstan\\BackEnd\\Resources\\Localization.csproj": {
                 "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Resources\\Localization.csproj"
               }

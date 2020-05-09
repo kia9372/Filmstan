@@ -1,4 +1,5 @@
 ﻿using Common.Operation;
+using DataTransfer.UserDtos;
 using Domain.Aggregate.DomainAggregates.UserAggregate;
 using MediatR;
 using System;

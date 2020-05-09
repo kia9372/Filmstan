@@ -82,10 +82,30 @@ namespace Domain.Aggregate.DomainAggregates.UserAggregate
             LockedEnd = null;
             UpdateSecurityStamp();
         }
+        public void UpdateProperties(string userName, string name, string family, string email = null, string photo = null)
+        {
+            Username = userName;
+            Name = name;
+            Family = family;
+            Password = Password;
+            Email = email;
+            Photo = photo;
+            IsActive = false;
+            IsLockedEnd = false;
+            ConfirmEmail = false;
+            ConfirmPhoneNumber = false;
+            LockedEnd = null;
+            UpdateSecurityStamp();
+        }
         public void ConfirmedPhoneNumber()
         {
             ConfirmPhoneNumber = true;
             IsActive = true;
+            UpdateSecurityStamp();
+        }
+        public void ChangeUserPhoneConfirmed(bool status)
+        {
+            ConfirmPhoneNumber = !status;
             UpdateSecurityStamp();
         }
         public void UserChangeActiveStatus(bool status)
@@ -105,6 +125,16 @@ namespace Domain.Aggregate.DomainAggregates.UserAggregate
             UpdateSecurityStamp();
             Email = email;
             ConfirmEmail = false;
+        }
+        public void ChangeEmailStatus(bool status)
+        {
+            UpdateSecurityStamp();
+            ConfirmEmail = !status;
+        }
+        public void ChangeLockEndStatus(bool status)
+        {
+            UpdateSecurityStamp();
+            IsLockedEnd = !status;
         }
         public void ConfirmedEmail()
         {

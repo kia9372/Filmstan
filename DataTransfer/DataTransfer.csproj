@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Domain.Aggregate\Domain.Aggregate.csproj" />
     <ProjectReference Include="..\Resources\Localization.csproj" />
   </ItemGroup>
 

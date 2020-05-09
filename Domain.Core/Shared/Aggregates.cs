@@ -11,7 +11,7 @@ namespace Domain.Core.Shared
     {
         private bool _isDelete = false;
         [Sieve(CanFilter = true, CanSort = true)]
-        public Guid Id { get; protected set; }
+        public Guid Id { get; set; }
         public bool IsDelete { get => _isDelete; protected set => value = _isDelete; }
 
         public void Delete()

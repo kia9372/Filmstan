@@ -18,20 +18,25 @@ namespace CommandHandler.UserRoleCommandHandlers
         }
         public async Task<OperationResult<bool>> Handle(UpdateUserRoleCommand request, CancellationToken cancellationToken)
         {
-            var getUserRole = await unitOfWork.UsersRepository.UsersRoleRepository.GetByUserId(request.RoleId);
+            var getUserRole = await unitOfWork.UsersRepository.UsersRoleRepository.GetByUserId(request.UserId);
             if (getUserRole.Result != null)
             {
                 getUserRole.Result.SetValues(request.RoleId, request.UserId);
                 var updateUserRole = unitOfWork.UsersRepository.UsersRoleRepository.UpdateUserRole(getUserRole.Result); 
                 if (updateUserRole.Success)
                 {
-                    try
+                    var findUSer = await unitOfWork.UsersRepository.GetUserByIdAsync(request.UserId,cancellationToken);
+                    if(findUSer.Success)
                     {
-                        await unitOfWork.CommitSaveChangeAsync();
-                    }
-                    catch (Exception ex)
-                    {
-                        return OperationResult<bool>.BuildFailure(ex);
+                        findUSer.Result.UpdateSecurityStamp();
+                        try
+                        {
+                            await unitOfWork.CommitSaveChangeAsync();
+                        }
+                        catch (Exception ex)
+                        {
+                            return OperationResult<bool>.BuildFailure(ex);
+                        }
                     }
                     return OperationResult<bool>.BuildSuccessResult(true);
                 }

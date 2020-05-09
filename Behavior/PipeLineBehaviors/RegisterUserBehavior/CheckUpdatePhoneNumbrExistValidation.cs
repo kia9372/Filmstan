@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BehaviorHandler.PipeLineBehaviors.RegisterUserBehavior
 {
-    public class CheckUpdatePhoneNumbrExistValidation<TRequest, TResponse> : IPipelineBehavior<UpdateUserCommand, OperationResult<string>>
+    public class CheckUpdatePhoneNumbrExistValidation<TRequest, TResponse> : IPipelineBehavior<UpdatePhoneNumberCommand, OperationResult<string>>
     {
         private readonly IDomainUnitOfWork unitOfWork;
 
@@ -15,10 +15,10 @@ namespace BehaviorHandler.PipeLineBehaviors.RegisterUserBehavior
         {
             this.unitOfWork = unitOfWork;
         }
-        public async Task<OperationResult<string>> Handle(UpdateUserCommand request, CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult<string>> next)
+        public async Task<OperationResult<string>> Handle(UpdatePhoneNumberCommand request, CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult<string>> next)
         {
-            var findUserName = await unitOfWork.UsersRepository.GetUserByPhoneNumberAsync(request.PhoneNumber, cancellationToken);
-            if (findUserName.Result != null)
+            var findUserName = await unitOfWork.UsersRepository.GetUserByIdAsync(request.UserId, cancellationToken);
+            if (findUserName.Result.PhoneNumber != request.PhoneNumber)
             {
                 return OperationResult<string>.BuildFailure("phoneNumber Exist");
             }

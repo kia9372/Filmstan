@@ -72,7 +72,7 @@ namespace SiteService.Repositories.UserRepository.Service
             {
                 var user = Users.AsNoTracking().Select(c => new UserPagingDto
                 {
-                    Id=c.Id,
+                    Id = c.Id,
                     ConfirmPhoneNumber = c.ConfirmPhoneNumber,
                     DisplayName = $"{c.Name} {c.Family}",
                     IsActive = c.IsActive,
@@ -130,6 +130,27 @@ namespace SiteService.Repositories.UserRepository.Service
             try
             {
                 var user = await Users.Where(x => x.Id == key).FirstOrDefaultAsync();
+                return OperationResult<User>.BuildSuccessResult(user);
+            }
+            catch (Exception ex)
+            {
+                return OperationResult<User>.BuildFailure(ex.Message);
+            }
+        }
+
+        public async Task<OperationResult<User>> GetUserInfoForEditAsync(Guid key, CancellationToken cancellation)
+        {
+            try
+            {
+                var user = await Users.Where(x => x.Id == key).Select(x => new User
+                {
+                    Email = x.Email,
+                    Family = x.Family,
+                    Id = x.Id,
+                    Name = x.Name,
+                    Username = x.Username,
+                    Password = null
+                }).FirstOrDefaultAsync();
                 return OperationResult<User>.BuildSuccessResult(user);
             }
             catch (Exception ex)

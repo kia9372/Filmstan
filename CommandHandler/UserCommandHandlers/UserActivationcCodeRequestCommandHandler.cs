@@ -55,7 +55,7 @@ namespace CommandHandler.UserCommandHandlers
                 }
                 return OperationResult<string>.BuildFailure(gerateActivationCode.ErrorMessage);
             }
-            return OperationResult<string>.BuildFailure(result.ErrorMessage);
+            return OperationResult<string>.BuildFailure("User Not found");
         }
     }
 }

@@ -13,6 +13,11 @@ namespace DataTransfer.UserDtos
         public Guid Id { get; set; }
     }
 
+    public class ChangeUserEmailStatusDto
+    {
+        public Guid Id { get; set; }
+    }
+
     public class ConfirmEmailDto
     {
         public string Email { get; set; }

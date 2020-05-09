@@ -200,6 +200,9 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
+              "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj": {
+                "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Domain.Aggregate\\Domain.Aggregate.csproj"
+              },
               "E:\\MyProject\\Filmstan\\BackEnd\\Resources\\Localization.csproj": {
                 "projectPath": "E:\\MyProject\\Filmstan\\BackEnd\\Resources\\Localization.csproj"
               }
@@ -470,6 +473,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "EFCore.BulkExtensions": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
               "version": "[3.1.3, )"

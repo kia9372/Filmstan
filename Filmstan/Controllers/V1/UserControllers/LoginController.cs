@@ -7,6 +7,7 @@ using Command.UserCommands;
 using Common.HttpContextExtentions;
 using DataTransfer.LoginDtos;
 using DataTransfer.SendActivationCodeDto;
+using Framework.CActionResult;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -29,6 +30,7 @@ namespace Command.Controllers.V1.UserControllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(LoginDto login)
         {
             var userLogin = await mediator.Send(new LoginCommand { Username = login.Username, Password = login.Password });
@@ -36,7 +38,7 @@ namespace Command.Controllers.V1.UserControllers
             {
                 return Ok(userLogin.Result);
             }
-            return BadRequest(userLogin.ErrorMessage);
+            return new UserLoginResult(userLogin.ErrorMessage);
         }
 
         [HttpPost]
@@ -51,22 +53,7 @@ namespace Command.Controllers.V1.UserControllers
             {
                 return Ok(result.Result);
             }
-            return BadRequest(result.ErrorMessage);
-        }
-
-        [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> UserInformation()
-        {
-            var result = await mediator.Send(new UserInformationCommand
-            {
-                Id = Guid.Parse(httpContextAccessor.HttpContext.User.Identity.GetUserId())
-            });
-            if (result.Success)
-            {
-                return Ok(result.Result);
-            }
-            return BadRequest(result.ErrorMessage);
+            return  BadRequest(result.ErrorMessage);
         }
     }
 }

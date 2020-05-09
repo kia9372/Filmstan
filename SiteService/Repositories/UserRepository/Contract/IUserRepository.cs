@@ -32,6 +32,7 @@ namespace SiteService.Repositories.UserRepository.Contract
         Task<OperationResult<User>> GetUserByPhoneNumberAsync(string phoneNumber, CancellationToken cancellation);
         Task<OperationResult<TokenInfo>> GetUserTokenInfo(Guid id);
         Task<OperationResult<UserInformationDto>> GetUserInformation(Guid id);
+        Task<OperationResult<User>> GetUserInfoForEditAsync(Guid key, CancellationToken cancellation);
         Task<OperationResult<GetAllPaging<UserPagingDto>>> GetAllCategoryPagingAsync(GetAllFormQuery formQuery, CancellationToken cancellation);
     }
 }

@@ -26,3 +26,7 @@ E:\MyProject\Filmstan\BackEnd\DataTransfer\obj\Debug\netcoreapp3.1\DataTransfer.
 E:\MyProject\Filmstan\BackEnd\DataTransfer\obj\Debug\netcoreapp3.1\DataTransfer.dll
 E:\MyProject\Filmstan\BackEnd\DataTransfer\obj\Debug\netcoreapp3.1\DataTransfer.pdb
 E:\MyProject\Filmstan\BackEnd\DataTransfer\obj\Debug\netcoreapp3.1\DataTransfer.csproj.CoreCompileInputs.cache
+E:\MyProject\Filmstan\BackEnd\DataTransfer\bin\Debug\netcoreapp3.1\Domain.Aggregate.dll
+E:\MyProject\Filmstan\BackEnd\DataTransfer\bin\Debug\netcoreapp3.1\Domain.Core.dll
+E:\MyProject\Filmstan\BackEnd\DataTransfer\bin\Debug\netcoreapp3.1\Domain.Aggregate.pdb
+E:\MyProject\Filmstan\BackEnd\DataTransfer\bin\Debug\netcoreapp3.1\Domain.Core.pdb

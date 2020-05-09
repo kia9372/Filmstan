@@ -52,8 +52,8 @@ namespace Framework.Configuration
             container.RegisterType<CheckUpdateEmailExistValidation<UpdateUserCommand, OperationResult<string>>>()
                   .As<IPipelineBehavior<UpdateUserCommand, OperationResult<string>>>();
 
-            container.RegisterType<CheckUpdatePhoneNumbrExistValidation<UpdateUserCommand, OperationResult<string>>>()
-                  .As<IPipelineBehavior<UpdateUserCommand, OperationResult<string>>>();
+            container.RegisterType<CheckUpdatePhoneNumbrExistValidation<UpdatePhoneNumberCommand, OperationResult<string>>>()
+                  .As<IPipelineBehavior<UpdatePhoneNumberCommand, OperationResult<string>>>();
 
             container.RegisterType<CheckRoleRegisterByUserValidation<SetRegisterUserSettingCommand, OperationResult<string>>>()
                   .As<IPipelineBehavior<SetRegisterUserSettingCommand, OperationResult<string>>>();

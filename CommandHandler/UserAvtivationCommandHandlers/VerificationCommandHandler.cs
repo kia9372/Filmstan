@@ -33,6 +33,7 @@ namespace CommandHandler.UserAvtivationCommandHandlers
                         {
                             case CodeTypes.EmailConfirmed:
                                 findUSer.Result.ConfirmedEmail();
+                                findUSer.Result.UserChangeActiveStatus(false);
                                 break;
                             case CodeTypes.ForgetPassword:
                                 break;
@@ -40,7 +41,7 @@ namespace CommandHandler.UserAvtivationCommandHandlers
                                 findUSer.Result.ConfirmedPhoneNumber();
                                 break;
                             case CodeTypes.RegisterCode:
-                                findUSer.Result.UserChangeActiveStatus(findUSer.Result.IsActive);
+                                findUSer.Result.UserChangeActiveStatus(false);
                                 break;
                         }
                         var reomve = unitOfWork.UsersRepository.ActivationCodeRepository.Remove(verification.Result);

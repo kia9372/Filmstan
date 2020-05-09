@@ -7,6 +7,9 @@ using Domain.Aggregate.DomainAggregates.CategoryAggregate;
 using Microsoft.EntityFrameworkCore;
 using Sieve.Models;
 using Sieve.Services;
+using SiteService.Repositories.BrandRepositories.Contract;
+using SiteService.Repositories.BrandRepositories.Implenents;
+using SiteService.Repositories.CategoryPropertyReposioties.Implements;
 using SiteService.Repositories.CategoryRepositories.Contract;
 using System;
 using System.Collections.Generic;
@@ -23,12 +26,16 @@ namespace SiteService.Repositories.CategoryRepositories.Implement
         private readonly ISieveProcessor sieveProcessor;
 
         private DbSet<Category> CategoryEntite { get; set; }
+        public ICategoryPropertyRepository CategoryPropertyRepository { get; set; }
+        public IBrandRepository BrandRepository { get; set; }
 
-        public CategoryRepository(FilmstanContext context,ISieveProcessor sieveProcessor)
+        public CategoryRepository(FilmstanContext context, ISieveProcessor sieveProcessor)
         {
             this.context = context;
             this.sieveProcessor = sieveProcessor;
             CategoryEntite = context.Set<Category>();
+            CategoryPropertyRepository = new CategoryPropertyRepository(context);
+            BrandRepository = new BrandRepository(context, sieveProcessor);
         }
 
         public async Task<OperationResult<string>> AddCategoryAsync(Category category, CancellationToken cancellation)

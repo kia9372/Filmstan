@@ -11,6 +11,10 @@ namespace DAL.EF.Context
 {
     public class FilmstanContext : DbContext
     {
+        public FilmstanContext()
+        {
+        }
+
         public FilmstanContext(DbContextOptions options) : base(options)
         {
         }

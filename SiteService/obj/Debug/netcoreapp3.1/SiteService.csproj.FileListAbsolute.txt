@@ -40,9 +40,9 @@ E:\MyProject\Filmstan\BackEnd\SiteService\bin\Debug\netcoreapp3.1\Localization.p
 E:\MyProject\Filmstan\BackEnd\SiteService\bin\Debug\netcoreapp3.1\en\Localization.resources.dll
 E:\MyProject\Filmstan\BackEnd\SiteService\bin\Debug\netcoreapp3.1\fa\Localization.resources.dll
 E:\MyProject\Filmstan\BackEnd\SiteService\obj\Debug\netcoreapp3.1\SiteService.csprojAssemblyReference.cache
-E:\MyProject\Filmstan\BackEnd\SiteService\obj\Debug\netcoreapp3.1\SiteService.csproj.CoreCompileInputs.cache
 E:\MyProject\Filmstan\BackEnd\SiteService\obj\Debug\netcoreapp3.1\SiteService.AssemblyInfoInputs.cache
 E:\MyProject\Filmstan\BackEnd\SiteService\obj\Debug\netcoreapp3.1\SiteService.AssemblyInfo.cs
 E:\MyProject\Filmstan\BackEnd\SiteService\obj\Debug\netcoreapp3.1\SiteService.csproj.CopyComplete
 E:\MyProject\Filmstan\BackEnd\SiteService\obj\Debug\netcoreapp3.1\SiteService.dll
 E:\MyProject\Filmstan\BackEnd\SiteService\obj\Debug\netcoreapp3.1\SiteService.pdb
+E:\MyProject\Filmstan\BackEnd\SiteService\obj\Debug\netcoreapp3.1\SiteService.csproj.CoreCompileInputs.cache

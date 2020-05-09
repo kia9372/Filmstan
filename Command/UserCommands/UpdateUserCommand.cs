@@ -1,5 +1,6 @@
 ﻿using Common.Operation;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using System;
 
 namespace Command.UserCommands
@@ -10,16 +11,14 @@ namespace Command.UserCommands
         public string Username { get; private set; }
         public string Name { get; private set; }
         public string Family { get; private set; }
-        public string PhoneNumber { get; private set; }
         public string Email { get; private set; }
-        public string Photo { get; private set; }
-        public UpdateUserCommand(Guid id, string userName, string name, string family, string phoneNumber, string email, string photo)
+        public IFormFile? Photo { get; private set; }
+        public UpdateUserCommand(Guid id, string userName, string name, string family, string email, IFormFile? photo)
         {
             Id = id;
             Username = userName;
             Name = name;
             Family = family;
-            PhoneNumber = phoneNumber;
             Email = email;
             Photo = photo;
         }

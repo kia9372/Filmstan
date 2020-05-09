@@ -2,6 +2,7 @@
 using DAL.EF.Context;
 using DataTransfer.RoleDtos;
 using Domain.Aggregate.DomainAggregates.RoleAggregate;
+using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 using SiteService.Repositories.RoleRepository.AccessLevels.Contract;
 using System;
@@ -32,27 +33,33 @@ namespace SiteService.Repositories.RoleRepository.AccessLevels.Service
 
                 if (newAccess != null)
                 {
+                    List<AccessLevel> accessLevelsL = new List<AccessLevel>();
                     foreach (var item in newAccess)
                     {
-                        AccessLevels.Add(new AccessLevel
+
+                        accessLevelsL.Add(new AccessLevel
                         {
+                            Id = Guid.NewGuid(),
                             Access = item,
                             RoleId = accessLevels.RoleId
                         });
                     }
+                    await context.BulkInsertAsync(accessLevelsL);
                 }
 
                 var removeItems = currentAccess.Except(accessLevels.Access).ToList();
                 if (removeItems != null)
                 {
+                    List<AccessLevel> accessLevelsL = new List<AccessLevel>();
                     foreach (var item in removeItems)
                     {
                         var accClaim = currentRoleAccessValue.SingleOrDefault(x => x.Access == item);
                         if (accClaim != null)
                         {
-                            AccessLevels.Remove(accClaim);
+                            accessLevelsL.Add(accClaim);
                         }
                     }
+                    await context.BulkDeleteAsync(accessLevelsL);
                 }
 
                 return OperationResult<string>.BuildSuccessResult("SuccessAdd");

@@ -18,6 +18,8 @@ namespace Framework.Configuration
             services.AddScoped<ResposeFormat, OkObjectResultFormatter>();
             services.AddScoped<ResposeFormat, BadRquestObjectresultFormatter>();
             services.AddScoped<ResposeFormat, ObjectResultFormatter>();
+            services.AddScoped<ResposeFormat, UserLoginReultFormatter>();
+            services.AddScoped<ResposeFormat, FileStreamResultFormatter>();
         }
 
         public static void SendNotificationConfig(this IServiceCollection services)

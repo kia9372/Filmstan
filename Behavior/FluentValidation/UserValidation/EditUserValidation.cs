@@ -11,7 +11,6 @@ namespace BehaviorHandler.FlientValidation.UserValidation
             RuleFor(x => x.Name).NotEmpty().NotNull();
             RuleFor(x => x.Username).NotNull().NotEmpty().MinimumLength(4);
             RuleFor(x => x.Family).NotEmpty().NotNull();
-            RuleFor(x => x.PhoneNumber).NotEmpty().NotNull();
             RuleFor(x => x.Email).EmailAddress();
         }
     }

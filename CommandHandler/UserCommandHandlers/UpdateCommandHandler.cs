@@ -1,5 +1,6 @@
 ﻿using Command.UserCommands;
 using Common.Operation;
+using Common.UploadUtility;
 using Domain.Aggregate.DomainAggregates.UserAggregate;
 using MediatR;
 using SiteService.Repositories.Implementation;
@@ -19,10 +20,16 @@ namespace CommandHandler.UserCommandHandlers
         }
         public async Task<OperationResult<bool>> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
+            string fileName = null;
             var getUser = await unitOfWork.UsersRepository.GetUserByIdAsync(request.Id, cancellationToken);
             if (getUser.Result != null)
             {
-                getUser.Result.SetProperies(request.Username, request.Name, request.Family, request.PhoneNumber, request.Email, request.Photo);
+                if (request.Photo != null)
+                {
+                    var uploadFile = await UploadUtiltie.UploadInCustomePath(request.Photo, ".png", request.Username, UploadFolderPath.PathUserUploadFolder(), UploadFolderPath.PathAvatarUserUploadFolder());
+                    fileName = uploadFile.Result;
+                }
+                getUser.Result.UpdateProperties(request.Username, request.Name, request.Family, request.Email,fileName);
                 var addUser = unitOfWork.UsersRepository.Update(getUser.Result, cancellationToken);
                 if (addUser.Success)
                 {

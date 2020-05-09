@@ -8,4 +8,18 @@ namespace Command.UserCommands
     {
         public Guid Id { get; set; }
     }
+
+    public class ChangeUserEmailStatusCommand : IRequest<OperationResult<bool>>
+    {
+        public Guid Id { get; set; }
+    }
+    public class ChangeUserLockEndStatusCommand : IRequest<OperationResult<bool>>
+    {
+        public Guid Id { get; set; }
+    }
+
+    public class ChangeUserPhoneConfirmedStatusCommand : IRequest<OperationResult<bool>>
+    {
+        public Guid Id { get; set; }
+    }
 }

@@ -19,6 +19,8 @@ namespace Domain.Aggregate.DomainAggregates.CategoryAggregate
         [Sieve(CanFilter = true, CanSort = true)]
         public string Name { get => _name; set => SetWithNotify(value, ref _name); }
         public ICollection<PostMagazine> PostMagazines { get; set; }
+        public ICollection<CategoryProperty> CategoryProperties { get; set; }
+        public ICollection<Brand> Brands { get; set; }
         #endregion
         public Category()
         {
